@@ -13,7 +13,7 @@ Route::post('/car/create/step1', [CarController::class, 'postCreateStep1']);
 Route::get('/car/create/step2', [CarController::class, 'createStep2'])->name('car.create.step2');
 Route::post('/car/create/step2', [CarController::class, 'postCreateStep2']);
 
-Route::get('/cars', [CarController::class, 'index'])->name('cars.index');
+Route::get('/cars', [CarController::class, 'index'])->name('cars.index')->middleware('auth');
 
 Route::middleware('auth')->group(function () {
     //

@@ -25,12 +25,13 @@ class CarController extends Controller
             'license_plate' => 'required',
         ]);
 
-        // Hier kun je een API-aanroep doen om de gegevens van het kenteken op te halen
-        // Voor nu simuleren we dit met een voorbeeld
+
         $carDetails = [
+            'license_plate' => $request->input('license_plate'),
             'brand' => 'Toyota',
             'model' => 'Corolla',
-            'production_year' => 2015
+            'production_year' => 2015,
+            'mileage' => 100
         ];
 
         Session::put('carDetails', $carDetails);
