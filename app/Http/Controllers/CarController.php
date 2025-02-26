@@ -62,6 +62,25 @@ class CarController extends Controller
         return redirect()->route('cars.index');
     }
 
+    public function createStep3(Request $request)
+    {
+        $carDetails = $request->session()->get('carDetails');
+        return view('car.create-step3', compact('carDetails'));
+    }
+
+    public function postCreateStep3(Request $request)
+    {
+        $validatedData = $request->validate([
+            'color' => 'required|string|max:255',
+        ]);
+
+        $carDetails = $request->session()->get('carDetails');
+        $carDetails['color'] = $validatedData['color'];
+        $request->session()->put('carDetails', $carDetails);
+
+        return redirect()->route('cars.index');
+    }
+
     public function destroy($id)
     {
         $car = Car::findOrFail($id);

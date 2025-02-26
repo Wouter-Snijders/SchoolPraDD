@@ -18,6 +18,9 @@ Route::post('/car/create/step1', [CarController::class, 'postCreateStep1']);
 Route::get('/car/create/step2', [CarController::class, 'createStep2'])->name('car.create.step2');
 Route::post('/car/create/step2', [CarController::class, 'postCreateStep2']);
 
+Route::get('/car/create/step3', [CarController::class, 'createStep3'])->name('car.create.step3');
+Route::post('/car/create/step3', [CarController::class, 'postCreateStep3']);
+
 Route::get('/cars', [CarController::class, 'index'])->name('cars.index')->middleware('auth');
 Route::delete('/cars/{id}', [CarController::class, 'destroy'])->name('cars.destroy');
 
