@@ -32,7 +32,15 @@
                             <li class="mr-4"><a class="text-orange-500 hover:text-orange-400" href="{{ route('login') }}">Inloggen</a></li>
                         @endguest
                         @auth
-                            <li class="mr-4"><a class="text-orange-500 hover:text-orange-400" href="{{ route('logout') }}">Uitloggen</a></li>
+                            <li class="mr-4">
+                                <a class="text-orange-500 hover:text-orange-400" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    Uitloggen
+                                </a>
+                            </li>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
                         @endauth
                     </ul>
                 </div>

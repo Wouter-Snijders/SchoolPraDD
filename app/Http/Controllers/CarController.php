@@ -59,6 +59,14 @@ class CarController extends Controller
 
         Car::create($carDetails);
 
-        return redirect()->route('cars.index')->with('success', 'Auto succesvol aangeboden!');
+        return redirect()->route('cars.index');
+    }
+
+    public function destroy($id)
+    {
+        $car = Car::findOrFail($id);
+        $car->delete();
+
+        return redirect()->route('cars.index')->with('success', 'Car deleted successfully');
     }
 }

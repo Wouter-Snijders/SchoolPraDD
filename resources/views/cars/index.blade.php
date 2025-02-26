@@ -22,18 +22,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($cars as $car)
+                        @foreach ($cars as $car)
                             <tr>
-                                <td>{{ $car->id }}</td>
                                 <td>{{ $car->license_plate }}</td>
                                 <td>{{ $car->brand }}</td>
                                 <td>{{ $car->model }}</td>
-                                <td>{{ $car->price }}</td>
+                                <td>{{ $car->production_year }}</td>
                                 <td>{{ $car->mileage }}</td>
-                                <td>{{ $car->color }}</td>
+                                <td>{{ $car->price }}</td>
                                 <td>
-                                    <a href="#" class="btn btn-primary btn-sm">Bewerken</a>
-                                    <a href="#" class="btn btn-danger btn-sm">Verwijderen</a>
+                                    <form action="{{ route('cars.destroy', $car->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
