@@ -8,8 +8,8 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <table class="table table-bordered">
-                    <thead>
+                <table class="table table-bordered table-striped">
+                    <thead class="thead-dark">
                         <tr>
                             <th>ID</th>
                             <th>Kenteken</th>
@@ -18,23 +18,26 @@
                             <th>Prijs</th>
                             <th>Kilometerstand</th>
                             <th>Kleur</th>
+                            <th>Bouwjaar</th>
                             <th>Acties</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($cars as $car)
                             <tr>
+                                <td>{{ $car->id }}</td>
                                 <td>{{ $car->license_plate }}</td>
                                 <td>{{ $car->brand }}</td>
                                 <td>{{ $car->model }}</td>
-                                <td>{{ $car->production_year }}</td>
-                                <td>{{ $car->mileage }}</td>
                                 <td>{{ $car->price }}</td>
+                                <td>{{ $car->mileage }}</td>
+                                <td>{{ $car->color }}</td>
+                                <td>{{ $car->production_year }}</td>
                                 <td>
                                     <form action="{{ route('cars.destroy', $car->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
                                     </form>
                                 </td>
                             </tr>
