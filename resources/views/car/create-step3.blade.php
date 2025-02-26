@@ -1,7 +1,8 @@
+<!-- filepath: /c:/laragon/www/SchoolPraDD/resources/views/car/create-step3.blade.php -->
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Auto Aanbieden - Stap 2') }}
+            {{ __('Auto Aanbieden - Stap 3') }}
         </h2>
     </x-slot>
 
@@ -12,15 +13,16 @@
                     <p>Merk: {{ $carDetails['brand'] }}</p>
                     <p>Model: {{ $carDetails['model'] }}</p>
                     <p>Bouwjaar: {{ $carDetails['production_year'] }}</p>
+                    <p>Prijs: {{ $carDetails['price'] }}</p>
                 </div>
-                <form action="{{ route('car.create.step2') }}" method="POST">
+                <form action="{{ route('car.create.step3') }}" method="POST">
                     @csrf
                     <div class="p-6">
-                        <label for="price">Prijs:</label>
-                        <input type="number" id="price" name="price" required>
+                        <label for="color">Kleur:</label>
+                        <input type="text" id="color" name="color" required>
                     </div>
                     <div class="p-6">
-                        <button type="submit" class="btn btn-primary">Volgende</button>
+                        <button type="submit" class="btn btn-primary">Verzenden</button>
                     </div>
                 </form>
             </div>
