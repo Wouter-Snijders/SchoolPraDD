@@ -31,7 +31,7 @@ class CarController extends Controller
             'brand' => 'Toyota',
             'model' => 'Corolla',
             'production_year' => 2015,
-            'color' => 'Red',
+            'color' => 'Rood',
             'mileage' => 100
         ];
 
