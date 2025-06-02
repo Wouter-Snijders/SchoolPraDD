@@ -10,7 +10,8 @@ class CarController extends Controller
 {
     public function index()
     {
-        $cars = Car::where('user_id', auth()->id())->get();
+        $cars = Car::all();
+
         return view('cars.index', compact('cars'));
     }
 
@@ -88,5 +89,11 @@ class CarController extends Controller
         $car->delete();
 
         return redirect()->route('cars.index')->with('success', 'Car deleted successfully');
+    }
+
+    public function mijnAanbod()
+    {
+        $cars = Car::where('user_id', auth()->id())->get();
+        return view('cars.mijn-aanbod', compact('cars'));
     }
 }

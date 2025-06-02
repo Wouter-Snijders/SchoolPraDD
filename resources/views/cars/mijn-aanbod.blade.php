@@ -34,15 +34,11 @@
                                 <td>{{ $car->color }}</td>
                                 <td>{{ $car->production_year }}</td>
                                 <td>
-                                    @auth
-                                        @if ($car->user_id === auth()->id())
-                                            <form action="{{ route('cars.destroy', $car->id) }}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Weet je zeker dat je deze auto wilt verwijderen?')">Verwijderen</button>
-                                            </form>
-                                        @endif
-                                    @endauth
+                                    <form action="{{ route('cars.destroy', $car->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Weet je zeker dat je deze auto wilt verwijderen?')">Verwijderen</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

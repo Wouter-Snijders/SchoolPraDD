@@ -23,7 +23,7 @@
                         <li class="mr-4"><a class="text-white hover:text-gray-300" href="{{ route('cars.index')}}">Alle auto's</a></li>
                         @auth
                             <li class="mr-4"><a class="text-white hover:text-gray-300" href="{{ route('car.create.step1') }}">Aanbod plaatsen</a></li>
-                            <li class="mr-4"><a class="text-white hover:text-gray-300" href="">Mijn aanbod</a></li>
+                            <li class="mr-4"><a class="text-white hover:text-gray-300" href="{{ route('cars.my') }}">Mijn aanbod</a></li>
                         @endauth
                     </ul>
                     <ul class="flex">
