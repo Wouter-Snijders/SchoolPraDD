@@ -24,7 +24,7 @@
                     </thead>
                     <tbody>
                         @foreach ($cars as $car)
-                            <tr>
+                            <tr onclick="window.location='{{ route('cars.show', $car->id) }}'" style="cursor: pointer;">
                                 <td>{{ $car->id }}</td>
                                 <td>{{ $car->license_plate }}</td>
                                 <td>{{ $car->brand }}</td>
@@ -34,7 +34,7 @@
                                 <td>{{ $car->color }}</td>
                                 <td>{{ $car->production_year }}</td>
                                 <td>
-                                    <form action="{{ route('cars.destroy', $car->id) }}" method="POST">
+                                    <form action="{{ route('cars.destroy', $car->id) }}" method="POST" onclick="event.stopPropagation();">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Weet je zeker dat je deze auto wilt verwijderen?')">Verwijderen</button>

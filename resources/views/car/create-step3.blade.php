@@ -9,6 +9,14 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                <!-- Progress bar -->
+                <div class="p-6">
+                    <div class="w-full bg-gray-200 rounded-full h-4 mb-4">
+                        <div class="bg-blue-600 h-4 rounded-full" style="width: 100%"></div>
+                    </div>
+                    <div class="text-sm text-gray-600">Stap 3 van 3</div>
+                </div>
+                <!-- /Progress bar -->
                 <div class="p-6">
                     <p>Merk: {{ $carDetails['brand'] }}</p>
                     <p>Model: {{ $carDetails['model'] }}</p>

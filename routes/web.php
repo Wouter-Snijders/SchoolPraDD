@@ -14,10 +14,11 @@ Route::post('/car/create/step1', [CarController::class, 'postCreateStep1']);
 Route::get('/car/create/step2', [CarController::class, 'createStep2'])->name('car.create.step2');
 Route::post('/car/create/step2', [CarController::class, 'postCreateStep2']);
 
-Route::get('/car/create/step3', [CarController::class, 'createStep3'])->name('car.create.step3');
+Route::get('/car/create/step3', [CarController::class, 'showCreateStep3'])->name('car.create.step3');
 Route::post('/car/create/step3', [CarController::class, 'postCreateStep3']);
 
 Route::get('/cars', [CarController::class, 'index'])->name('cars.index');
+Route::get('/cars/{id}', [CarController::class, 'show'])->name('cars.show');
 Route::delete('/cars/{id}', [CarController::class, 'destroy'])->name('cars.destroy');
 
 Route::middleware('auth')->group(function () {
