@@ -54,19 +54,16 @@ class CarController extends Controller
             'price' => 'required|numeric|min:0',
         ]);
 
-        // Haal bestaande carDetails op of maak een nieuwe array
         $carDetails = $request->session()->get('carDetails', []);
         $carDetails['price'] = $validated['price'];
         $request->session()->put('carDetails', $carDetails);
 
-        // Redirect naar stap 3
         return redirect()->route('car.create.step3');
     }
 
     public function showCreateStep3(Request $request)
     {
         $carDetails = $request->session()->get('carDetails', []);
-        // Geef alleen carDetails door, geen kleur vooraf invullen
         return view('car.create-step3', compact('carDetails'));
     }
 
@@ -79,7 +76,6 @@ class CarController extends Controller
         $carDetails = $request->session()->get('carDetails', []);
         $carDetails['color'] = $validated['color'];
 
-        // Sla de auto op in de database
         $car = new Car();
         $car->license_plate = $carDetails['license_plate'] ?? null;
         $car->brand = $carDetails['brand'] ?? null;
@@ -88,16 +84,13 @@ class CarController extends Controller
         $car->color = $carDetails['color'] ?? null;
         $car->mileage = $carDetails['mileage'] ?? null;
         $car->price = $carDetails['price'] ?? null;
-        // Optioneel: koppel aan ingelogde gebruiker
         if (auth()->check()) {
             $car->user_id = auth()->id();
         }
         $car->save();
 
-        // Wis de sessie indien gewenst
         $request->session()->forget('carDetails');
 
-        // Redirect naar een bedankpagina of overzicht
         return redirect()->route('cars.index');
     }
 

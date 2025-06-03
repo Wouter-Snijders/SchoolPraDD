@@ -11,7 +11,7 @@
                 <!-- Progress bar -->
                 <div class="p-6">
                     <div class="w-full bg-gray-200 rounded-full h-4 mb-4">
-                        <div class="bg-blue-600 h-4 rounded-full" style="width: 66.6%"></div>
+                        <div class="h-4 rounded-full" style="width: 66.6%; background-color: #e97316;"></div>
                     </div>
                     <div class="text-sm text-gray-600">Stap 2 van 3</div>
                 </div>
